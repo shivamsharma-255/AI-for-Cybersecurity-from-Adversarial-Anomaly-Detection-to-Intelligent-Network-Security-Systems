@@ -1,0 +1,58 @@
+{%extends 'userbase.html'%}
+{%load static%}
+{%block contents%}
+    <div class="testimonial-area testimonial-padding" data-background="{%static 'img/gallery/section_bg04.jpg'%}">
+        <div class="container ">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-10 col-lg-10 col-md-9">
+                    <div class="h1-testimonial-active">
+                        <!-- Single Testimonial -->
+                        <div class="single-testimonial text-center">
+                            <!-- Testimonial Content -->
+                            <div class="testimonial-caption ">
+                                <div class="testimonial-top-cap">
+                                   <h1><font color="WHITE">Enter URL</font></h1>
+                                    <p>
+                                         <center>
+                                    <form action="{%url 'process'%}" method="POST" class="text-primary" style="width:100%">
+                    {% csrf_token %}
+                    <table>
+                        <div class="form-group row">
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="url" required placeholder="Enter URL tag Name">
+                </div>
+              </div>
+                        <tr>
+                            <td>
+                               <div class="form-group mt-3">
+                                <button type="submit" class="button button-contactForm boxed-btn">Get phish</button>
+                            </div>
+                            </td>
+
+                        </tr>
+
+
+                        {% if messages %}
+                        {% for message in messages %}
+                        <font color='GREEN'> {{ message }}</font>
+                        {% endfor %}
+                        {% endif %}
+
+                    </table>
+
+                </form>
+                         <img height="152" src="{% static 'img/gallery/bomb.gif' %}" width="152"/>
+                          <h3 ><font color="WHITE"> YOUR RESULT IS : {{ name }}</font></h3>
+                            <img height="152" src="{% static 'img/gallery/_com2.gif' %}" width="152"/>
+                                </center>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}
